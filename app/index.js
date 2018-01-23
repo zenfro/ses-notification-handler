@@ -45,7 +45,6 @@ const handler = (event) => {
       Key: s3key,
       Body: sns.Message,
       ContentType: 'application/json',
-      ACL: 'public-read',
     };
 
     s3.putObject(s3params, error => console.log(error));
