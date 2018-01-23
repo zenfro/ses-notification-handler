@@ -1,0 +1,11 @@
+extends: airbnb-base
+env:
+  mocha: true
+rules:
+  linebreak-style: 0
+  no-plusplus: 0
+  prefer-destructuring: 0
+  # we need import 'should' in tests without using it as a standalone variable
+  no-unused-vars:
+    - error
+    - varsIgnorePattern: should

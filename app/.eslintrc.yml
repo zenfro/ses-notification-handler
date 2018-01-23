@@ -1,0 +1,12 @@
+extends: airbnb-base
+rules:
+  linebreak-style: 0
+  no-plusplus: 0
+  comma-dangle:
+    - error
+    -
+      functions: ignore
+      arrays: always-multiline
+      objects: always-multiline
+      imports: always-multiline
+      exports: always-multiline
