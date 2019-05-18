@@ -5,9 +5,7 @@
 const AWS = require('aws-sdk');
 const messageProcessor = require('./messageProcessor');
 
-AWS.config.update({ region: 'us-east-1' });
-
-const s3 = new AWS.S3();
+AWS.config.update({ region: 'us-east-2' });
 
 const handler = (event) => {
   const records = event.Records;
@@ -20,8 +18,6 @@ const handler = (event) => {
     if (!sns || !sns.MessageId) {
       return;
     }
-
-    const s3key = sns.MessageId;
 
     const entries = messageProcessor.getBounceListEntries(sns);
 
@@ -39,15 +35,6 @@ const handler = (event) => {
         });
       });
     }
-
-    const s3params = {
-      Bucket: 'ses-notifications-us-east-1-335055970032',
-      Key: s3key,
-      Body: sns.Message,
-      ContentType: 'application/json',
-    };
-
-    s3.putObject(s3params, error => console.log(error));
   });
 };
 

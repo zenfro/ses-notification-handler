@@ -9,7 +9,7 @@ cd app
 npm i
 write-output 'compressing lambda function code...'
 bash -c 'zip -r ../app.zip * -qdc'
-cd ..
-write-output 'uploading lambda function code...'
-aws lambda update-function-code --function-name $(Get-Location | Split-Path -Leaf) --zip-file fileb://app.zip
+# cd ..
+# write-output 'uploading lambda function code...'
+# aws lambda update-function-code --function-name $(Get-Location | Split-Path -Leaf) --zip-file fileb://app.zip
 write-output 'done!'
